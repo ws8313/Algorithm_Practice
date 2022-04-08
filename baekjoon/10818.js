@@ -2,7 +2,7 @@
 const input = require("fs").readFileSync("/dev/stdin").toString().split("\n")
 
 const count = Number(input[0]);
-const num = input[1].split(" ").map(x => Number(x));
+const num = input[1].split(" ").map(Number);
 
 num.sort((a, b) => a - b);
 
