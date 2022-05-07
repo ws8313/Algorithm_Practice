@@ -28,6 +28,5 @@ function solution(a, b) {
 
 // 세번째 풀이 등차수열의 합
 function solution(a, b) {
-    let ans = 0
     return (a + b) * (Math.abs(b - a) + 1) / 2;
 }
