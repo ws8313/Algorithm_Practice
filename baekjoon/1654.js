@@ -1,10 +1,11 @@
 // 백준 1654번 랜선 자르기
-// let input = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n")
-let input = require("fs").readFileSync("예제.txt").toString().trim().split("\n");
+let input = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n")
+
 let KN = input.shift();
 const K = Number(KN.split(" ")[0]);
 const N = Number(KN.split(" ")[1]);
 
+input.sort((a, b) => a - b);
 let left = 0;
 let right = input[input.length - 1];
 
@@ -24,6 +25,3 @@ while (left <= right) {
 }
 
 console.log(answer);
-
-
-
