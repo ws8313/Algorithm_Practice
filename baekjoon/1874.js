@@ -1,27 +1,30 @@
-let input= require('fs').readFileSync('예제.txt').toString().trim().split("\n");
+let input= require('fs').readFileSync('/dev/stdin').toString().trim().split("\n");
 
-// const N = Number(input.shift());
-const [N, ...numbers] = input;
-const nums = numbers.map(i => Number(i));
+const N = input[0];
 
+let arr = [];
 let stack = [];
 let answer = '';
-let count = 1;
 
 for (let i = 0; i < N; i++) {
-    const num = nums.shift(); // 4, 3, 6, 8, 7, 5, 2, 1
+    arr[i] = 1 + i;
+}
 
-    while (count <= num) { // 1 <= 4
-        stack.push(count); // stack [ 1, 2, 3, 4 ]
+for (let j = 1; j <= N; j++) {
+    let count = 1;
+
+    while (count <= N && stack[stack.length - 1] != input[j]) {
+        stack.push(arr.shift());
         count++;
-        answer += '+\n'; // answer = '+ + + +'
+        answer += '+\n';
     }
-
-    const popNum = stack.pop(); // 4 [ 1, 2, 3 ]
-    answer += '-\n'; // answer = '+ + + + -'
-    if (popNum !== num) { // 4 4
+    if (stack[stack.length - 1] == input[j]) {
+        stack.pop();
+        answer += '-\n';
+    } else {
         answer = 'NO';
+        break;
     }
 }
 
-console.log(answer.trim());
+console.log(answer);
