@@ -1,12 +1,12 @@
 // 백준 1920번 수 찾기
-const filePath = process.platform === 'linux' ? 'dev/stdin' : './input.txt';
+const filePath = process.platform === 'linux' ? 'dev/stdin' : './예제.txt';
 const input = require('fs').readFileSync(filePath).toString().trim().split('\n');
 
-let arrN = input[1].split(' ').map(v=>+v);
-let arrM = input[3].split(' ').map(v=>+v);
+let arrN = input[1].split(' ').map(v => + v);
+let arrM = input[3].split(' ').map(v => + v);
 let answer = [];
 
-arrN.sort((a,b) => a - b);
+arrN.sort((a, b) => a - b);
 
 arrM.forEach(e => {
     let left = 0;
