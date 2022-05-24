@@ -4,7 +4,6 @@ const input = require('fs').readFileSync(filePath).toString().trim().split('\n')
 
 const N = input[0];
 const nums = input[1].split(' ');
-let arr = [];
 let answer = 0;
 
 function primeNumber(n) {
