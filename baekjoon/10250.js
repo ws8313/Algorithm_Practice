@@ -8,17 +8,27 @@ for (let i = 0; i < T; i++) {
   let H = Number(HWN.shift());
   HWN.shift();
   let N = Number(HWN.shift());
-  let count = 1;
+  // let count = 1;
 
-  while (N > H) {
-    count++;
-    N = N - H;
-  }
+  // while (N > H) {
+  //   count++;
+  //   N = N - H;
+  // }
   
-  if (count < 10) {
-    console.log(`${N}0${count}`);
+  // if (count < 10) {
+  //   console.log(`${N}0${count}`);
+  // }
+  // else {
+  //   console.log(`${N}${count}`);
+  // }
+
+  const floor = N % H === 0 ? H : N % H;
+  const roomNum = Number.isInteger(N / H) ? N / H : Math.ceil(N / H);
+
+  if (roomNum < 10) {
+    console.log(`${floor}0${roomNum}`);
   }
   else {
-    console.log(`${N}${count}`);
+    console.log(`${floor}${roomNum}`);
   }
 }
