@@ -6,7 +6,7 @@ const table = input.map(v => v.split(' ').map(Number));
 const rank = [];
 
 for (let i = 0; i < T; i++) {
-  let count = 0;
+  let count = 1;
   for (let j = 0; j < T; j++) {
     if (i !== j) {
       if (table[i][0] < table[j][0] && table[i][1] < table[j][1]) {
@@ -14,7 +14,7 @@ for (let i = 0; i < T; i++) {
       }
     }
   }
-  rank.push(count + 1);
+  rank.push(count);
 }
 
 console.log(rank.join(' '));
