@@ -13,7 +13,7 @@ nums.sort((a, b) => {
   }
 })
 
-nums.forEach((i) => {
+nums.map((i) => {
   answer += `${i[0]} ${i[1]}\n`;
 });
 
