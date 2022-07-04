@@ -2,16 +2,16 @@
 const filePath = process.platform === 'linux' ? 'dev/stdin' : './예제.txt';
 const input = require('fs').readFileSync(filePath).toString().trim().split('\n');
 
-const TC = +input.shift();
+const TC = Number(input.shift());
 let data = input;
 const maps = [];
 
-for(let i=0; i<TC; i++) {
+for (let i = 0; i < TC; i++) {
     let [M, N, K] = data.shift().split(' ').map(Number);
     let map = Array.from({length: N}).map(row => row = Array.from({length:M}).fill(0));
 
-    for(let i=0; i<K; i++) {
-        let [X, Y] = [+data[i].split(' ')[0], +data[i].split(' ')[1]]
+    for (let i = 0; i < K; i++) {
+        let [X, Y] = [Number(data[i].split(' ')[0]), Number(data[i].split(' ')[1])];
         map[Y][X] = 1;
     }
     maps.push(map);
@@ -21,9 +21,9 @@ for(let i=0; i<TC; i++) {
 function solution(arr) {
     const visited = {};
     let answer = 0;
-    for(let i=0; i<arr.length; i++) {
-        for(let j=0; j<arr[0].length; j++) {
-            if(arr[i][j] === 1 && !visited[[i,j]]) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[0].length; j++) {
+            if (arr[i][j] === 1 && !visited[[i,j]]) {
                 bfs(i,j);
             }
         }
@@ -37,15 +37,15 @@ function solution(arr) {
         let dx = [0, 0, -1, 1];
         let dy = [-1, 1, 0, 0];
     
-        while(queue.length) {
-            for(let i=0; i<queue.length; i++) {
+        while (queue.length) {
+            for (let i = 0; i < queue.length; i++) {
                 const coords = queue.shift();
-                if(!visited[[coords[0], coords[1]]]) continue;
+                if (!visited[[coords[0], coords[1]]]) continue;
                 result.push(coords);
-                for(let j=0; j<4; j++) {
+                for (let j = 0; j < 4; j++) {
                     let nx = coords[0] + dx[j];
                     let ny = coords[1] + dy[j];
-                    if((nx >= 0 &&
+                    if ((nx >= 0 &&
                         ny >= 0 &&
                         nx < arr.length &&
                         ny < arr[0].length) &&
